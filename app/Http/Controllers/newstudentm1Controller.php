@@ -36,7 +36,7 @@ class newstudentm1Controller extends Controller
      */
     public function show($id)
     {
-        //
+        return newstudentm1Model::find($id);
     }
 
     /**
@@ -48,7 +48,9 @@ class newstudentm1Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $newstudentm1 = newstudentm1Model::find($id);
+        $newstudentm1->update($request->all());
+        return $newstudentm1;
     }
 
     /**
@@ -59,6 +61,6 @@ class newstudentm1Controller extends Controller
      */
     public function destroy($id)
     {
-        //
+        newstudentm1Model::destroy($id);
     }
 }

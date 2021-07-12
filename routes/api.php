@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/newstudentm1', [newstudentm1Controller::class, 'index']);
 Route::post('/newstudentm1', [newstudentm1Controller::class, 'store']);
+Route::resource('/newstudentm1', newstudentm1Controller::class);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
