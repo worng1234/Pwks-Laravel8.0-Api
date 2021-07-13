@@ -17,13 +17,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 //NewstudentM1
-Route::get('/newstudentm1', [newstudentm1Controller::class, 'index']);
+Route::get('/getnewstudentm1', [newstudentm1Controller::class, 'index']);
 Route::post('/newstudentm1', [newstudentm1Controller::class, 'store']);
-Route::resource('/newstudentm1', newstudentm1Controller::class);
+Route::get('/getnewstudentm1/{id}', [newstudentm1Controller::class, 'show']);
+Route::put('editnewstudentm1/{id}', [newstudentm1Controller::class, 'update']);
+Route::delete('deletenewstudentm1/{id}', [newstudentm1Controller::class, 'destroy']);
 //NewstudentM4
-Route::get('/newstudentm4', [newstudentm4Controller::class, 'index']);
+Route::get('/getnewstudentm4', [newstudentm4Controller::class, 'index']);
 Route::post('/newstudentm4', [newstudentm4Controller::class, 'store']);
-Route::resource('/newstudentm4', newstudentm4Controller::class);
+Route::get('/getnewstudentm4/{id}', [newstudentm4Controller::class, 'show']);
+Route::put('editnewstudentm4/{id}', [newstudentm4Controller::class, 'update']);
+Route::delete('deletenewstudentm4/{id}', [newstudentm4Controller::class, 'destroy']);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

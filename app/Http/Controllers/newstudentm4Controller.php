@@ -25,7 +25,8 @@ class newstudentm4Controller extends Controller
      */
     public function store(Request $request)
     {
-        return newstudentm4Model::create($request->all());
+        $newstudentm4 = newstudentm4Model::create($request->all());
+        return response($newstudentm4, 201);
     }
 
     /**
@@ -59,8 +60,10 @@ class newstudentm4Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        newstudentm4Model::destroy($id);
+        $newstudentm4 = newstudentm4Model::find($id);
+        $newstudentm4->delete();
+        return response()->json(null, 204);
     }
 }
