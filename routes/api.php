@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\newstudentController;
 use App\Http\Controllers\newstudentm1Controller;
 use App\Http\Controllers\newstudentm4Controller;
 use Illuminate\Http\Request;
@@ -28,6 +29,11 @@ Route::post('/newstudentm4', [newstudentm4Controller::class, 'store']);
 Route::get('/getnewstudentm4/{id}', [newstudentm4Controller::class, 'show']);
 Route::put('editnewstudentm4/{id}', [newstudentm4Controller::class, 'update']);
 Route::delete('deletenewstudentm4/{id}', [newstudentm4Controller::class, 'destroy']);
+
+//Test
+Route::get('/test', [newstudentController::class, 'getAll']);
+Route::post('/testadd', [newstudentController::class, 'create']);
+Route::post('/testadd2', [newstudentController::class, 'store']);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
