@@ -3,6 +3,7 @@
 use App\Http\Controllers\newstudentController;
 use App\Http\Controllers\newstudentm1Controller;
 use App\Http\Controllers\newstudentm4Controller;
+use App\Http\Controllers\studentcoreController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,11 +30,15 @@ Route::post('/newstudentm4', [newstudentm4Controller::class, 'store']);
 Route::get('/getnewstudentm4/{id}', [newstudentm4Controller::class, 'show']);
 Route::put('editnewstudentm4/{id}', [newstudentm4Controller::class, 'update']);
 Route::delete('deletenewstudentm4/{id}', [newstudentm4Controller::class, 'destroy']);
+//StudentInformationCore
+Route::get('/getstudentcore', [studentcoreController::class, 'getAll']);
+
 
 //Test
 Route::get('/test', [newstudentController::class, 'getAll']);
 Route::post('/testadd', [newstudentController::class, 'create']);
 Route::post('/testadd2', [newstudentController::class, 'store']);
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

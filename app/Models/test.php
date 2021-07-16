@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class test extends Model
 {
-    protected $table = "test";
+    protected $table = "student_information_core";
     protected $fillable = [
+        'prename',
         'name',
-        'surname'
+        'surname',
+        'student_id'
     ];
 }
