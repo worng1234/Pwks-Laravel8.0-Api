@@ -32,6 +32,7 @@ Route::put('editnewstudentm4/{id}', [newstudentm4Controller::class, 'update']);
 Route::delete('deletenewstudentm4/{id}', [newstudentm4Controller::class, 'destroy']);
 //StudentInformationCore
 Route::get('/getstudentcore', [studentcoreController::class, 'getAll']);
+Route::get('/getstudentcore/{id}', [newstudentm4Controller::class, 'getID']);
 
 
 //Test
