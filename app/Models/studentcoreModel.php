@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class studentcoreModel extends Model
 {
+    use HasFactory;
     protected $table = "student_information_core";
     protected $fillable = [
         'student_id',

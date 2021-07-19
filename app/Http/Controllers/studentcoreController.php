@@ -12,6 +12,10 @@ class studentcoreController extends Controller
     }
 
     public function getID($id){
-        return studentcoreModel::find($id);
+        $student =  studentcoreModel::find($id);
+        if(is_null($student)){
+            return response()->json(['message' => 'Student Not found'], 404);
+        }
+        return response()->json($student::find($id), 200);
     }
 }

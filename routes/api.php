@@ -21,18 +21,18 @@ use Illuminate\Support\Facades\Route;
 //NewstudentM1
 Route::get('/getnewstudentm1', [newstudentm1Controller::class, 'index']);
 Route::post('/newstudentm1', [newstudentm1Controller::class, 'store']);
-Route::get('/getnewstudentm1/{id}', [newstudentm1Controller::class, 'show']);
+Route::get('/getnewstudentm1id/{id}', [newstudentm1Controller::class, 'show']);
 Route::put('editnewstudentm1/{id}', [newstudentm1Controller::class, 'update']);
 Route::delete('deletenewstudentm1/{id}', [newstudentm1Controller::class, 'destroy']);
 //NewstudentM4
 Route::get('/getnewstudentm4', [newstudentm4Controller::class, 'index']);
 Route::post('/newstudentm4', [newstudentm4Controller::class, 'store']);
-Route::get('/getnewstudentm4/{id}', [newstudentm4Controller::class, 'show']);
+Route::get('/getnewstudentm4id/{id}', [newstudentm4Controller::class, 'show']);
 Route::put('editnewstudentm4/{id}', [newstudentm4Controller::class, 'update']);
 Route::delete('deletenewstudentm4/{id}', [newstudentm4Controller::class, 'destroy']);
 //StudentInformationCore
 Route::get('/getstudentcore', [studentcoreController::class, 'getAll']);
-Route::get('/getstudentcore/{id}', [newstudentm4Controller::class, 'getID']);
+Route::get('/getstudentcoreid/{id}', [studentcoreController::class, 'getID']);
 
 
 //Test
