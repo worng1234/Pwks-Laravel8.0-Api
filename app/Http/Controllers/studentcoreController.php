@@ -18,4 +18,10 @@ class studentcoreController extends Controller
         }
         return response()->json($student::find($id), 200);
     }
+
+    public function update(Request $request, $id){
+        $studentcore = studentcoreModel::find($id);
+        $studentcore->update($request->all());
+        return $studentcore;
+    }
 }
