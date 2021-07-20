@@ -4,6 +4,7 @@ use App\Http\Controllers\newstudentController;
 use App\Http\Controllers\newstudentm1Controller;
 use App\Http\Controllers\newstudentm4Controller;
 use App\Http\Controllers\studentcoreController;
+use App\Http\Controllers\behaviorstudentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,10 @@ Route::delete('deletenewstudentm4/{id}', [newstudentm4Controller::class, 'destro
 Route::get('/getstudentcore', [studentcoreController::class, 'getAll']);
 Route::get('/getstudentcoreid/{id}', [studentcoreController::class, 'getID']);
 Route::put('/editstudentcore/{id}', [studentcoreController::class, 'update']);
+Route::get('/joinstudentandbehavior', [studentcoreController::class, 'joinstudentandbehavior']);
+Route::get('/joinstudentandbehaviorid/{student_id}', [studentcoreController::class, 'joinstudentandbehaviorid']);
+//Behaviorstudent
+Route::post('/addbehavior', [behaviorstudentController::class, 'store']);
 
 
 //Test
