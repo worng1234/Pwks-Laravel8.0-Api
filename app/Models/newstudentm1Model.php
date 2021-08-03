@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class newstudentm1Model extends Model
 {
@@ -14,6 +15,7 @@ class newstudentm1Model extends Model
         'nameCen',
         'surname',
         'sex',
+        'pic',
         'idNumber',
         'birthday',
         'religion',
