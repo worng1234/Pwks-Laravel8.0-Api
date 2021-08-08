@@ -35,6 +35,12 @@ Route::delete('deletenewstudentm4/{id}', [newstudentm4Controller::class, 'destro
 //StudentInformationCore
 Route::get('/getstudentcore', [studentcoreController::class, 'getAll']);
 Route::get('/getstudentcoreid/{id}', [studentcoreController::class, 'getID']);
+Route::post('/addstudent', [studentcoreController::class, 'address']);
+Route::post('/healtystudent', [studentcoreController::class, 'healty']);
+Route::post('/parentstudent', [studentcoreController::class, 'parent']);
+Route::post('/studentdetail', [studentcoreController::class, 'studentdetail']);
+Route::post('/talentstudent', [studentcoreController::class, 'talent']);
+Route::post('/studentcore', [studentcoreController::class, 'studentcore']);
 Route::put('/editstudentcore/{id}', [studentcoreController::class, 'update']);
 Route::get('/joinstudentandbehavior', [studentcoreController::class, 'joinstudentandbehavior']);
 Route::get('/joinstudentandbehaviorid/{student_id}', [studentcoreController::class, 'joinstudentandbehaviorid']);

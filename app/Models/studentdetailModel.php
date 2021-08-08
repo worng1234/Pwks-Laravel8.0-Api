@@ -50,6 +50,6 @@ class studentdetailModel extends Model
         'help3',
         'help4',
         'help5',
-        'help6',
+        'help6'
     ];
 }
