@@ -5,6 +5,7 @@ use App\Http\Controllers\newstudentm1Controller;
 use App\Http\Controllers\newstudentm4Controller;
 use App\Http\Controllers\studentcoreController;
 use App\Http\Controllers\behaviorstudentController;
+use App\Http\Controllers\testController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -52,6 +53,7 @@ Route::post('/addbehavior', [behaviorstudentController::class, 'store']);
 Route::get('/test', [newstudentController::class, 'getAll']);
 Route::post('/testadd', [newstudentController::class, 'create']);
 Route::post('/testadd2', [newstudentController::class, 'store']);
+Route::post('/test', [testController::class, 'store']);
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

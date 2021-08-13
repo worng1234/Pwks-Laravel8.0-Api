@@ -25,6 +25,7 @@ class talentstudentModel extends Model
         'unlike_subject4',
         'talent',
         'dream_job',
+        'because',
         'read_write',
         'understand',
     ];

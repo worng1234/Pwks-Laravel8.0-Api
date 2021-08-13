@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\studentcoreModel;
+use App\Models\studentcoreModels;
 use App\Models\addressstudentModel;
 use App\Models\healtystudentModel;
 use App\Models\parentstudentModel;
@@ -245,6 +246,7 @@ class studentcoreController extends Controller
         $post->unlike_subject4 = $request['unlike_subject4'];
         $post->talent = $request['talent'];
         $post->dream_job = $request['dream_job'];
+        $post->because = $request['because'];
         $post->read_write = $request['read_write'];
         $post->understand = $request['understand'];
 
@@ -257,36 +259,33 @@ class studentcoreController extends Controller
 
     public function studentcore(Request $request){
 
-        $post = new studentcoreModel();
+        $post = new studentcoreModels();
         $post->student_id = $request['student_id'];
         $post->student_id_card = $request['student_id_card'];
+        $post->student_major = $request['student_major'];
+        $post->student_class = $request['student_class'];
+        $post->student_room = $request['student_room'];
         $post->prename = $request['prename'];
+        $post->prename_eng = $request['prename_eng'];
+        $post->name_eng = $request['name_eng'];
+        $post->name_cen_eng = $request['name_cen_eng'];
+        $post->surname_eng = $request['surname_eng'];
+        $post->birth_year = $request['birth_year'];
+        $post->birth_month = $request['birth_month'];
+        $post->birth_day = $request['birth_day'];
+        $post->nickname = $request['nickname'];
+        $post->gender = $request['gender'];
+        $post->bloodgroup = $request['bloodgroup'];
+        $post->religion = $request['religion'];
+        $post->origin = $request['origin'];
+        $post->nationality = $request['nationality'];
+        $post->language = $request['language'];
+        $post->tel_s = $request['tel_s'];
+        $post->email = $request['email'];
         $post->name = $request['name'];
         $post->name_cen = $request['name_cen'];
         $post->surname = $request['surname'];
-        $post->pic = $request['pic'];
-        $post->religion = $request['religion'];
-        $post->nationality = $request['nationality'];
-        $post->origin = $request['origin'];
-        $post->house_number = $request['house_number'];
-        $post->bloc = $request['bloc'];
-        $post->street = $request['street'];
-        $post->road = $request['road'];
-        $post->sub_district = $request['sub_district'];
-        $post->district = $request['district'];
-        $post->province = $request['province'];
-        $post->post = $request['post'];
-        $post->disabled = $request['disabled'];
-        $post->poor_person = $request['poor_person'];
-        $post->etc = $request['etc'];
-        $post->sex = $request['sex'];
-        $post->status = $request['status'];
-        $post->classroom_id = $request['classroom_id'];
-        $post->birthday = $request['birthday'];
-        $post->tel = $request['tel'];
-        $post->score = $request['score'];
-        $post->email = $request['email'];
-        $post->blood_group = $request['blood_group'];
+
 
         if($post->save()){
             return response($post);

@@ -7,11 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class test extends Model
 {
-    protected $table = "student_information_core";
+    protected $table = "test";
     protected $fillable = [
-        'prename',
         'name',
         'surname',
-        'student_id'
+        'CheckBox',
     ];
 }
