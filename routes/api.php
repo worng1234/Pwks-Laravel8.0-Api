@@ -6,6 +6,8 @@ use App\Http\Controllers\newstudentm4Controller;
 use App\Http\Controllers\studentcoreController;
 use App\Http\Controllers\behaviorstudentController;
 use App\Http\Controllers\testController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -47,7 +49,9 @@ Route::get('/joinstudentandbehavior', [studentcoreController::class, 'joinstuden
 Route::get('/joinstudentandbehaviorid/{student_id}', [studentcoreController::class, 'joinstudentandbehaviorid']);
 //Behaviorstudent
 Route::post('/addbehavior', [behaviorstudentController::class, 'store']);
-
+//AuthController
+Route::get('/Auth', [AuthController::class, 'index']);
+Route::get('/User', [UserController::class, 'index']);
 
 //Test
 Route::get('/test', [newstudentController::class, 'getAll']);

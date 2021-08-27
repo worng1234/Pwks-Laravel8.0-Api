@@ -34,5 +34,6 @@ class studentcoreModels extends Model
         'name',
         'name_cen',
         'surname',
+        'rememberToken',
     ];
 }
