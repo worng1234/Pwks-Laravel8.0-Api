@@ -51,7 +51,8 @@ Route::get('/joinstudentandbehaviorid/{student_id}', [studentcoreController::cla
 Route::post('/addbehavior', [behaviorstudentController::class, 'store']);
 //AuthController
 Route::get('/Auth', [AuthController::class, 'index']);
-Route::get('/User', [UserController::class, 'index']);
+//Route::get('/User', [UserController::class, 'index']);
+Route::get('/User', [UserController::class, 'user'])->middleware('auth:api');
 
 //Test
 Route::get('/test', [newstudentController::class, 'getAll']);
