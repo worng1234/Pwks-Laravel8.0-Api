@@ -52,6 +52,8 @@ Route::post('/addbehavior', [behaviorstudentController::class, 'store']);
 //AuthController
 Route::get('/Auth', [AuthController::class, 'index']);
 Route::get('/User', [UserController::class, 'index']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
 
 //Test
 Route::get('/test', [newstudentController::class, 'getAll']);
