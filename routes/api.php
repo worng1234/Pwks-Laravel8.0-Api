@@ -51,7 +51,7 @@ Route::get('/joinstudentandbehaviorid/{student_id}', [studentcoreController::cla
 Route::post('/addbehavior', [behaviorstudentController::class, 'store']);
 //AuthController
 Route::post('/login', [AuthController::class, 'login']);
-Route::get('/User', [UserController::class, 'index']);
+Route::get('/User', [AuthController::class, 'getUser']);
 Route::post('/register', [AuthController::class, 'register']);
 
 //Test

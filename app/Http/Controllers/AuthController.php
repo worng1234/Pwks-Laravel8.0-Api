@@ -14,8 +14,12 @@ class AuthController extends Controller
 {
     use HasApiTokens;
 
+    public function getUser(){
+        return User::all();
+    }
+
     public function register(Request $request){
-        return loginstudent::create([
+        return User::create([
             'student_id' => $request->input(key:'student_id'),
             'student_id_card' => $request->input(key:'student_id_card'),
             'name' => $request->input(key:'name'),
