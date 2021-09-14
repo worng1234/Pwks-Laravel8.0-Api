@@ -7,12 +7,11 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Laravel\Passport\HasApiTokens;
+use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
-    use HasApiTokens;
 
     public function getUser(){
         return User::all();
@@ -31,13 +30,67 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        if(!Auth::attempt($request->only(keys:'email')) && !Auth::attempt($request->only(keys:'password')))
+
+        // $fields = $request->validate([
+        //     'email' => 'required|string|unique:users,email',
+        //     'pasword' => 'required|string|confirmed'
+        // ]);
+        // $user = User::where('email', $fields['email'])->first();
+        // //$token = $user->createToken('myapptoken')->plainTextToken;
+
+        // $credentials = request(['email','password']);
+
+        // if(!Auth::attempt($credentials))
+        // {
+        //     return response()->json([
+        //         'status_code' => 500,
+        //         'message' => 'Unauthorized'
+        //     ]);
+        // }
+
+        // $response = [
+        //     'user' => $user,
+        //     //'token' => $token
+        // ];
+
+        // return response($response, 201);
+        $validator = Validator::make ($request->all(),[
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        if($validator->fails())
         {
-           return response(['message' => 'Invalid credentials'], status:Response::HTTP_UNAUTHORIZED);
+            return response()->json(['status_code' => 400, 'message' => 'Bad Request']);
         }
-                $user = Auth::user();
-                //$token = $user->createToken('token')->plainTextToken;
-                return $user;
+        $credentials = request(['email','password']);
+
+        if(!Auth::attempt($credentials))
+        {
+            return response()->json([
+                'status_code' => 500,
+                'message' => 'Unauthorized'
+            ]);
+        }
+
+        $user = User::where('email', $request->email)->first();
+
+        $tokenResult = $user->createToken('authToken')->plainTextToken;
+
+        return response()->json([
+            'status_code' => 200,
+            'user' => $user,
+            'token' => $tokenResult
+        ]);
+    }
+
+    public function logout(Request $request){
+
+        $request->user()->currentAccessToken()->delete();
+        return response()->json([
+            'status_code' => 200,
+            'message' => 'Token deleted successfully'
+        ]);
     }
 
 

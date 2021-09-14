@@ -60,6 +60,9 @@ Route::post('/testadd', [newstudentController::class, 'create']);
 Route::post('/testadd2', [newstudentController::class, 'store']);
 Route::post('/test', [testController::class, 'store']);
 
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
