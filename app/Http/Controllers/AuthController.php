@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\User;
+//use App\User;
+use App\Models\User;
 
 
 class AuthController extends Controller {
@@ -74,20 +75,20 @@ class AuthController extends Controller {
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function logout() {
-        auth()->logout();
+    // public function logout() {
+    //     auth()->logout();
 
-        return response()->json(['message' => 'User successfully signed out']);
-    }
+    //     return response()->json(['message' => 'User successfully signed out']);
+    // }
 
     /**
      * Refresh a token.
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function refresh() {
-        return $this->createNewToken(auth()->refresh());
-    }
+    // public function refresh() {
+    //     return $this->createNewToken(auth()->refresh());
+    // }
 
     /**
      * Get the authenticated User.
@@ -105,13 +106,13 @@ class AuthController extends Controller {
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function createNewToken($token){
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
-            'user' => auth()->user()
-        ]);
-    }
+    // protected function createNewToken($token){
+    //     return response()->json([
+    //         'access_token' => $token,
+    //         'token_type' => 'bearer',
+    //         'expires_in' => auth()->factory()->getTTL() * 60,
+    //         'user' => auth()->user()
+    //     ]);
+    // }
 
 }
