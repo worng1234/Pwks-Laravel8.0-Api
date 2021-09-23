@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 //NewstudentM1
 Route::get('/getnewstudentm1', [newstudentm1Controller::class, 'index']);
-Route::post('/newstudentm1', [newstudentm1Controller::class, 'store']);
+Route::post('/registerm1', [newstudentm1Controller::class, 'store']);
 Route::post('/uploadimage', [newstudentm1Controller::class, 'up']);
 Route::get('/getnewstudentm1id/{id}', [newstudentm1Controller::class, 'show']);
 Route::put('/editnewstudentm1/{id}', [newstudentm1Controller::class, 'update']);
