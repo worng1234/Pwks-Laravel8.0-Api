@@ -84,10 +84,12 @@ class newstudentm1Controller extends Controller
             $post->finalSchoolSubDistrict = $request['finalSchoolSubDistrict'];
             $post->finalSchoolDistrict = $request['finalSchoolDistrict'];
             $post->finalSchoolProvince = $request['finalSchoolProvince'];
-
         }
         if($post->save()){
-            return response($post, 201);
+            return response()->json([
+                'message' => "Successfully created",
+                'success' => true
+            ], 200);
         }else {
             return ['status' => false, 'message' => 'Post Somthing Wented Wrong'];
         }

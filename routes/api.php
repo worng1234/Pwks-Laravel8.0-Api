@@ -31,7 +31,7 @@ Route::put('/editnewstudentm1/{id}', [newstudentm1Controller::class, 'update']);
 Route::delete('deletenewstudentm1/{id}', [newstudentm1Controller::class, 'destroy']);
 //NewstudentM4
 Route::get('/getnewstudentm4', [newstudentm4Controller::class, 'index']);
-Route::post('/newstudentm4', [newstudentm4Controller::class, 'store']);
+Route::post('/registerm4', [newstudentm4Controller::class, 'store']);
 Route::get('/getnewstudentm4id/{id}', [newstudentm4Controller::class, 'show']);
 Route::put('/editnewstudentm4/{id}', [newstudentm4Controller::class, 'update']);
 Route::delete('deletenewstudentm4/{id}', [newstudentm4Controller::class, 'destroy']);
@@ -59,6 +59,7 @@ Route::get('/test', [newstudentController::class, 'getAll']);
 Route::post('/testadd', [newstudentController::class, 'create']);
 Route::post('/testadd2', [newstudentController::class, 'store']);
 Route::post('/test', [testController::class, 'store']);
+Route::post('/imageUp', [testController::class, 'imageUp']);
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

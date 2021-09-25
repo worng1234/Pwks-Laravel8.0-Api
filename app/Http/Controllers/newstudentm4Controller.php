@@ -95,10 +95,12 @@ class newstudentm4Controller extends Controller
             $post->onet_thai = $request['onet_thai'];
             $post->onet_eng = $request['onet_eng'];
             $post->student_id = $request['student_id'];
-
         }
         if($post->save()){
-            return response($post, 201);
+            return response()->json([
+                'message' => "Successfully created",
+                'success' => true
+            ], 200);
         }else {
             return ['status' => false, 'message' => 'Post Somthing Wented Wrong'];
         }
