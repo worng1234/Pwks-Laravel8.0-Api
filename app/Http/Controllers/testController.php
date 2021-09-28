@@ -28,7 +28,15 @@ class testController extends Controller
             $compPic = str_replace(' ', '_', $fileNameOnly). '-'. rand(). '_'. time(). '.'. $ext;
             $path = $request->file('image')->storeAs('public/newstudentm1PIC', $compPic);
             $post->image = $compPic;
+            //PDF
+            $completeFileNamePDF = $request->file('file_pdf')->getClientOriginalName();
+            $fileNamePDFOnly = pathinfo($completeFileNamePDF, PATHINFO_FILENAME);
+            $PDFext = $request->file('file_pdf')->getClientOriginalExtension();
+            $compPDF = str_replace(' ', '_', $fileNamePDFOnly). '.'. $PDFext;
+            $pathPDF = $request->file('file_pdf')->storeAs('public/newstudentm1PDF', $compPDF);
+            $post->file_pdf = $compPDF;
             $post->name = $request['name'];
+            $post->surname = $request['surname'];
         }
         if($post->save()){
             return response()->json([
@@ -38,5 +46,14 @@ class testController extends Controller
         }else {
             return ['status' => false, 'message' => 'Post Somthing Wented Wrong'];
         }
+    }
+
+    public function index(){
+        $data = test::all();
+        return $data;
+    }
+
+    public function testID($id){
+        return test::find($id);
     }
 }

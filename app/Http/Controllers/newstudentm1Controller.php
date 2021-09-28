@@ -32,18 +32,36 @@ class newstudentm1Controller extends Controller
         $post = new newstudentm1Model();
 
         if($request->hasFile('pic')){
+            //pic
             $completeFileName = $request->file('pic')->getClientOriginalName();
             $fileNameOnly = pathinfo($completeFileName, PATHINFO_FILENAME);
             $ext = $request->file('pic')->getClientOriginalExtension();
-            $compPic = str_replace(' ', '_', $fileNameOnly). '-'. rand(). '_'. time(). '.'. $ext;
+            $compPic = str_replace(' ', '_', $fileNameOnly).'.'. $ext;
             $path = $request->file('pic')->storeAs('public/newstudentm1PIC', $compPic);
+            //id_number_pic
+            $completeFileNameIDNUMBER = $request->file('id_number_pic')->getClientOriginalName();
+            $fileNameIDNUMBEROnly = pathinfo($completeFileNameIDNUMBER, PATHINFO_FILENAME);
+            $IDNUMBERext = $request->file('id_number_pic')->getClientOriginalExtension();
+            $compIDNUMBER = str_replace(' ', '_', $fileNameIDNUMBEROnly). '.'. $IDNUMBERext;
+            $pathPDF = $request->file('id_number_pic')->storeAs('public/newstudentm1IDNUMBER', $compIDNUMBER);
+            //house_pic
+            $completeFileNameHOUSE = $request->file('house_pic')->getClientOriginalName();
+            $fileNameHOUSEOnly = pathinfo($completeFileNameHOUSE, PATHINFO_FILENAME);
+            $HOUSEext = $request->file('house_pic')->getClientOriginalExtension();
+            $compHOUSE = str_replace(' ', '_', $fileNameHOUSEOnly). '.'. $HOUSEext;
+            $pathPDF = $request->file('house_pic')->storeAs('public/newstudentm1HOUSE', $compHOUSE);
+            //information
             $post->pic = $compPic;
+            $post->id_number_pic = $compIDNUMBER;
+            $post->house_pic = $compHOUSE;
             $post->idNumber = $request['idNumber'];
+            $post->day = $request['day'];
+            $post->mounth = $request['mounth'];
+            $post->year = $request['year'];
             $post->name = $request['name'];
             $post->prename = $request['prename'];
             $post->surname = $request['surname'];
             $post->sex = $request['sex'];
-            $post->birthday = $request['birthday'];
             $post->religion = $request['religion'];
             $post->nationality = $request['nationality'];
             $post->origin = $request['origin'];
@@ -88,7 +106,8 @@ class newstudentm1Controller extends Controller
         if($post->save()){
             return response()->json([
                 'message' => "Successfully created",
-                'success' => true
+                'success' => true,
+                'data' => $post
             ], 200);
         }else {
             return ['status' => false, 'message' => 'Post Somthing Wented Wrong'];

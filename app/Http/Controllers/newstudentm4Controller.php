@@ -28,19 +28,37 @@ class newstudentm4Controller extends Controller
         $post = new newstudentm4Model();
 
         if($request->hasFile('pic')){
+            //pic
             $completeFileName = $request->file('pic')->getClientOriginalName();
             $fileNameOnly = pathinfo($completeFileName, PATHINFO_FILENAME);
             $ext = $request->file('pic')->getClientOriginalExtension();
             $compPic = str_replace(' ', '_', $fileNameOnly). '-'. rand(). '_'. time(). '.'. $ext;
             $path = $request->file('pic')->storeAs('public/newstudentm4PIC', $compPic);
+            //id_number_pic
+            $completeFileNameIDNUMBER = $request->file('id_number_pic')->getClientOriginalName();
+            $fileNameIDNUMBEROnly = pathinfo($completeFileNameIDNUMBER, PATHINFO_FILENAME);
+            $IDNUMBERext = $request->file('id_number_pic')->getClientOriginalExtension();
+            $compIDNUMBER = str_replace(' ', '_', $fileNameIDNUMBEROnly). '.'. $IDNUMBERext;
+            $pathPDF = $request->file('id_number_pic')->storeAs('public/newstudentm4IDNUMBER', $compIDNUMBER);
+            //house_pic
+            $completeFileNameHOUSE = $request->file('house_pic')->getClientOriginalName();
+            $fileNameHOUSEOnly = pathinfo($completeFileNameHOUSE, PATHINFO_FILENAME);
+            $HOUSEext = $request->file('house_pic')->getClientOriginalExtension();
+            $compHOUSE = str_replace(' ', '_', $fileNameHOUSEOnly). '.'. $HOUSEext;
+            $pathPDF = $request->file('house_pic')->storeAs('public/newstudentm4HOUSE', $compHOUSE);
+            //information
             $post->pic = $compPic;
+            $post->id_number_pic = $compHOUSE;
+            $post->house_pic = $compIDNUMBER;
             $post->id_number = $request['id_number'];
+            $post->day = $request['day'];
+            $post->mounth = $request['mounth'];
+            $post->year = $request['year'];
             $post->name = $request['name'];
             $post->name_cen = $request['name_cen'];
             $post->prename = $request['prename'];
             $post->surname = $request['surname'];
             $post->sex = $request['sex'];
-            $post->birthday = $request['birthday'];
             $post->religion = $request['religion'];
             $post->nationality = $request['nationality'];
             $post->origin = $request['origin'];
@@ -99,7 +117,8 @@ class newstudentm4Controller extends Controller
         if($post->save()){
             return response()->json([
                 'message' => "Successfully created",
-                'success' => true
+                'success' => true,
+                'data' => $post
             ], 200);
         }else {
             return ['status' => false, 'message' => 'Post Somthing Wented Wrong'];

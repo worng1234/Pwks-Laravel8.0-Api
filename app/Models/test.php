@@ -11,6 +11,8 @@ class test extends Model
     protected $fillable = [
         'name',
         'surname',
+        'image',
+        'file_pdf',
         'CheckBox',
     ];
 }

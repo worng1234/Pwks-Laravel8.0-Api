@@ -60,6 +60,8 @@ Route::post('/testadd', [newstudentController::class, 'create']);
 Route::post('/testadd2', [newstudentController::class, 'store']);
 Route::post('/test', [testController::class, 'store']);
 Route::post('/imageUp', [testController::class, 'imageUp']);
+Route::get('/getall', [testController::class, 'index']);
+Route::get('/testID/{id}', [testController::class, 'testID']);
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
