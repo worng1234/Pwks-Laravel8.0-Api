@@ -173,6 +173,7 @@ class studentcoreController extends Controller
 
         $post = new studentdetailModel();
         $post->go_school = $request['go_school'];
+        $post->go_school_time = $request['go_school_time'];
         $post->distance = $request['distance'];
         $post->long_distance = $request['long_distance'];
         $post->gadject = $request['gadject'];
@@ -255,7 +256,7 @@ class studentcoreController extends Controller
         $post->language = $request['language'];
         $post->tel_s = $request['tel_s'];
         $post->email = $request['email'];
-        $post->name = $request['name'];
+        $post->fname = $request['fname'];
         $post->name_cen = $request['name_cen'];
         $post->surname = $request['surname'];
 

@@ -58,7 +58,7 @@ class newstudentm1Controller extends Controller
             $post->day = $request['day'];
             $post->mounth = $request['mounth'];
             $post->year = $request['year'];
-            $post->name = $request['name'];
+            $post->fname = $request['fname'];
             $post->prename = $request['prename'];
             $post->surname = $request['surname'];
             $post->sex = $request['sex'];
@@ -71,12 +71,14 @@ class newstudentm1Controller extends Controller
             $post->tel = $request['tel'];
             $post->email = $request['email'];
             $post->nameCen = $request['nameCen'];
+            $post->father_prename = $request['father_prename'];
             $post->fatherName = $request['fatherName'];
             $post->fatherNamecen = $request['fatherNamecen'];
             $post->fatherSurname = $request['fatherSurname'];
             $post->fatherId = $request['fatherId'];
             $post->fatherJob = $request['fatherJob'];
             $post->fatherTel = $request['fatherTel'];
+            $post->mother_prename = $request['mother_prename'];
             $post->motherName = $request['motherName'];
             $post->motherNamecen = $request['motherNamecen'];
             $post->motherSurname = $request['motherSurname'];
@@ -84,6 +86,7 @@ class newstudentm1Controller extends Controller
             $post->motherJob = $request['motherJob'];
             $post->motherTel = $request['motherTel'];
             $post->parent = $request['parent'];
+            $post->parent_prename = $request['parent_prename'];
             $post->parentName = $request['parentName'];
             $post->parentNamecen = $request['parentNamecen'];
             $post->parentSurname = $request['parentSurname'];

@@ -10,6 +10,7 @@ class studentdetailModel extends Model
     protected $table = "student_detail";
     protected $fillable = [
         'go_school',
+        'go_school_time',
         'distance',
         'long_distance',
         'gadject',

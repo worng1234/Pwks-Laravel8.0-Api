@@ -54,7 +54,7 @@ class newstudentm4Controller extends Controller
             $post->day = $request['day'];
             $post->mounth = $request['mounth'];
             $post->year = $request['year'];
-            $post->name = $request['name'];
+            $post->fname = $request['fname'];
             $post->name_cen = $request['name_cen'];
             $post->prename = $request['prename'];
             $post->surname = $request['surname'];
@@ -67,12 +67,14 @@ class newstudentm4Controller extends Controller
             $post->etc = $request['etc'];
             $post->tel = $request['tel'];
             $post->email = $request['email'];
+            $post->father_prename = $request['father_prename'];
             $post->father_name = $request['father_name'];
             $post->father_namecen = $request['father_namecen'];
             $post->father_surname = $request['father_surname'];
             $post->father_id = $request['father_id'];
             $post->father_job = $request['father_job'];
             $post->father_tel = $request['father_tel'];
+            $post->mother_prename = $request['mother_prename'];
             $post->mother_name = $request['mother_name'];
             $post->mother_namecen = $request['mother_namecen'];
             $post->mother_surname = $request['mother_surname'];
@@ -80,6 +82,7 @@ class newstudentm4Controller extends Controller
             $post->mother_job = $request['mother_job'];
             $post->mother_tel = $request['mother_tel'];
             $post->parent = $request['parent'];
+            $post->parent_prename = $request['parent_prename'];
             $post->parent_name = $request['parent_name'];
             $post->parent_namecen = $request['parent_namecen'];
             $post->parent_surname = $request['parent_surname'];

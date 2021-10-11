@@ -35,7 +35,7 @@ class studentcoreModels extends Model
         'language',
         'tel_s',
         'email',
-        'name',
+        'fname',
         'name_cen',
         'surname',
         'rememberToken',
