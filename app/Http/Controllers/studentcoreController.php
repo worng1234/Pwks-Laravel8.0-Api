@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 class studentcoreController extends Controller
 {
     public function getAll(){
-       return studentcoreModel::all();
+       return studentcoreModels::all();
     }
 
     public function getID($id){
@@ -26,9 +26,11 @@ class studentcoreController extends Controller
         return response()->json($student::find($id), 200);
     }
 
+    //Post
     public function address(Request $request){
 
         $post = new addressstudentModel();
+        $post->student_idcard_a = $request['student_idcard_a'];
         $post->house_number = $request['house_number'];
         $post->group = $request['group'];
         $post->village = $request['village'];
@@ -59,6 +61,7 @@ class studentcoreController extends Controller
     public function healty(Request $request){
 
         $post = new healtystudentModel();
+        $post->student_idcard_h = $request['student_idcard_h'];
         $post->weight = $request['weight'];
         $post->height = $request['height'];
         $post->disease = $request['disease'];
@@ -81,6 +84,7 @@ class studentcoreController extends Controller
     public function parent(Request $request){
 
         $post = new parentstudentModel();
+        $post->student_idcard_p = $request['student_idcard_p'];
         $post->prename_f = $request['prename_f'];
         $post->name_f = $request['name_f'];
         $post->name_cen_f = $request['name_cen_f'];
@@ -172,13 +176,14 @@ class studentcoreController extends Controller
     public function studentdetail(Request $request){
 
         $post = new studentdetailModel();
+        $post->student_idcard_d = $request['student_idcard_d'];
         $post->go_school = $request['go_school'];
         $post->go_school_time = $request['go_school_time'];
         $post->distance = $request['distance'];
         $post->long_distance = $request['long_distance'];
         $post->gadject = $request['gadject'];
         $post->internet = $request['internet'];
-        $post->disebled = $request['disebled'];
+        $post->disabled = $request['disabled'];
         $post->unfortuned = $request['unfortuned'];
         $post->lack = $request['lack'];
         $post->friend_drug = $request['friend_drug'];
@@ -204,6 +209,7 @@ class studentcoreController extends Controller
     public function talent(Request $request){
 
         $post = new talentstudentModel();
+        $post->student_idcard_t = $request['student_idcard_t'];
         $post->final_school = $request['final_school'];
         $post->final_class = $request['final_class'];
         $post->avg_grade = $request['avg_grade'];
@@ -234,7 +240,7 @@ class studentcoreController extends Controller
     public function studentcore(Request $request){
 
         $post = new studentcoreModels();
-        $post->student_id = $request['student_id'];
+        $post->studentID = $request['studentID'];
         $post->student_id_card = $request['student_id_card'];
         $post->student_major = $request['student_major'];
         $post->student_class = $request['student_class'];
@@ -268,12 +274,74 @@ class studentcoreController extends Controller
         }
     }
 
-    public function update(Request $request, $id){
+    //GetID
+    public function studentcoreID($id)
+    {
+        return studentcoreModels::find($id);
+    }
+
+    public function addressstudentID($id)
+    {
+        return addressstudentModel::find($id);
+    }
+
+    public function healtystudentID($id)
+    {
+        return healtystudentModel::find($id);
+    }
+
+    public function parentstudentID($id)
+    {
+        return parentstudentModel::find($id);
+    }
+
+    public function studentdetailID($id)
+    {
+        return studentdetailModel::find($id);
+    }
+
+    public function talentstudentID($id)
+    {
+        return talentstudentModel::find($id);
+    }
+
+//Update
+    public function studentcoreUpdate(Request $request, $id){
         $studentcore = studentcoreModel::find($id);
         $studentcore->update($request->all());
         return $studentcore;
     }
 
+    public function addressstudentUpdate(Request $request, $id){
+        $studentcore = addressstudentModel::find($id);
+        $studentcore->update($request->all());
+        return $studentcore;
+    }
+
+    public function healtystudentUpdate(Request $request, $id){
+        $studentcore = healtystudentModel::find($id);
+        $studentcore->update($request->all());
+        return $studentcore;
+    }
+
+    public function parentstudentUpdate(Request $request, $id){
+        $studentcore = parentstudentModel::find($id);
+        $studentcore->update($request->all());
+        return $studentcore;
+    }
+
+    public function studentdetailUpdate(Request $request, $id){
+        $studentcore = studentdetailModel::find($id);
+        $studentcore->update($request->all());
+        return $studentcore;
+    }
+
+    public function talentstudentUpdate(Request $request, $id){
+        $studentcore = talentstudentModel::find($id);
+        $studentcore->update($request->all());
+        return $studentcore;
+    }
+//////////////////////////////////
     public function joinstudentandbehavior(){
         $data = DB::table('student_information_core')
         ->join('behavior_student', 'student_information_core.student_id', '=', 'behavior_student.B_student_id')

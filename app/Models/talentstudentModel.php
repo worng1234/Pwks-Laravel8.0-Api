@@ -9,6 +9,7 @@ class talentstudentModel extends Model
 {
     protected $table = "talent_student";
     protected $fillable = [
+        'student_idcard_t',
         'final_school',
         'final_class',
         'avg_grade',

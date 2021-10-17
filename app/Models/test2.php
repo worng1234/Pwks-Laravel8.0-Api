@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class test extends Model
+class test2 extends Model
 {
-    protected $table = "test";
+    protected $table = "test2";
     protected $fillable = [
         'name',
         'surname',
         'image',
         'file_pdf',
         'CheckBox',
-        'id_number1'
+        'id_number2'
     ];
 }

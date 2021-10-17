@@ -9,6 +9,7 @@ class parentstudentModel extends Model
 {
     protected $table = "parent_student";
     protected $fillable = [
+        'student_idcard_p',
         'prename_f',
         'name_f',
         'name_cen_f',

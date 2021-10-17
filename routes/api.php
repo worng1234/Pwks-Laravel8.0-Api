@@ -37,6 +37,12 @@ Route::put('/editnewstudentm4/{id}', [newstudentm4Controller::class, 'update']);
 Route::delete('deletenewstudentm4/{id}', [newstudentm4Controller::class, 'destroy']);
 //StudentInformationCore
 Route::get('/getstudentcore', [studentcoreController::class, 'getAll']);
+Route::get('/studentcoreID/{id}', [studentcoreController::class, 'studentcoreID']);
+Route::get('/addressstudentID/{id}', [studentcoreController::class, 'addressstudentID']);
+Route::get('/healtystudentID/{id}', [studentcoreController::class, 'healtystudentID']);
+Route::get('/parentstudentID/{id}', [studentcoreController::class, 'parentstudentID']);
+Route::get('/studentdetailID/{id}', [studentcoreController::class, 'studentdetailID']);
+Route::get('/talentstudentID/{id}', [studentcoreController::class, 'talentstudentID']);
 Route::get('/getstudentcoreid/{id}', [studentcoreController::class, 'getID']);
 Route::post('/addstudent', [studentcoreController::class, 'address']);
 Route::post('/healtystudent', [studentcoreController::class, 'healty']);
@@ -44,7 +50,12 @@ Route::post('/parentstudent', [studentcoreController::class, 'parent']);
 Route::post('/studentdetail', [studentcoreController::class, 'studentdetail']);
 Route::post('/talentstudent', [studentcoreController::class, 'talent']);
 Route::post('/studentcore', [studentcoreController::class, 'studentcore']);
-Route::put('/editstudentcore/{id}', [studentcoreController::class, 'update']);
+Route::put('/studentcoreUpdate/{id}', [studentcoreController::class, 'studentcoreUpdate']);
+Route::put('/addressstudentUpdate/{id}', [studentcoreController::class, 'addressstudentUpdate']);
+Route::put('/healtystudentUpdate/{id}', [studentcoreController::class, 'healtystudentUpdate']);
+Route::put('/parentstudentUpdate/{id}', [studentcoreController::class, 'parentstudentUpdate']);
+Route::put('/studentdetailUpdate/{id}', [studentcoreController::class, 'studentdetailUpdate']);
+Route::put('/talentstudentUpdate/{id}', [studentcoreController::class, 'talentstudentUpdate']);
 Route::get('/joinstudentandbehavior', [studentcoreController::class, 'joinstudentandbehavior']);
 Route::get('/joinstudentandbehaviorid/{student_id}', [studentcoreController::class, 'joinstudentandbehaviorid']);
 //Behaviorstudent
@@ -62,6 +73,8 @@ Route::post('/test', [testController::class, 'store']);
 Route::post('/imageUp', [testController::class, 'imageUp']);
 Route::get('/getall', [testController::class, 'index']);
 Route::get('/testID/{id}', [testController::class, 'testID']);
+Route::post('/testpost1', [testController::class, 'testpost1']);
+Route::post('/testpost2', [testController::class, 'testpost2']);
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\test;
+use App\Models\test2;
 
 use Illuminate\Http\Request;
 
@@ -55,5 +56,27 @@ class testController extends Controller
 
     public function testID($id){
         return test::find($id);
+    }
+
+    public function testpost1(Request $request){
+        $post = new test();
+        $post->id_number1 = $request['id_number1'];
+        if($post->save()){
+            return response($post);
+        }else {
+            return ['status' => false, 'message' => 'Post Somthing Wented Wrong'];
+        }
+
+    }
+
+    public function testpost2(Request $request){
+        $post = new test2();
+        $post->id_number2 = $request['id_number2'];
+        if($post->save()){
+            return response($post);
+        }else {
+            return ['status' => false, 'message' => 'Post Somthing Wented Wrong'];
+        }
+
     }
 }

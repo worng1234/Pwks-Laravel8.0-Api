@@ -14,7 +14,7 @@ class studentcoreModels extends Model
     protected $table = "student_core";
     protected $fillable = [
         'student_id_card',
-        'student_id',
+        'studentID',
         'student_major',
         'student_class',
         'student_room',

@@ -9,6 +9,7 @@ class healtystudentModel extends Model
 {
     protected $table = "healty_student";
     protected $fillable = [
+        'student_idcard_h',
         'weight',
         'height',
         'disease',

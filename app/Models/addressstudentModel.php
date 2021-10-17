@@ -9,6 +9,7 @@ class addressstudentModel extends Model
 {
     protected $table = "address_student";
     protected $fillable = [
+        'student_idcard_a',
         'house_number',
         'group',
         'village',

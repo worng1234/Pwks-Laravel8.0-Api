@@ -9,13 +9,14 @@ class studentdetailModel extends Model
 {
     protected $table = "student_detail";
     protected $fillable = [
+        'student_idcard_d',
         'go_school',
         'go_school_time',
         'distance',
         'long_distance',
         'gadject',
         'internet',
-        'disebled',
+        'disabled',
         'unfortuned',
         'lack',
         'friend_drug',
