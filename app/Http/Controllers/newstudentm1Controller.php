@@ -11,22 +11,52 @@ use Illuminate\Validation\Validator as ValidationValidator;
 
 class newstudentm1Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+   function agreementNewstudentm1(){
+       return view('Newstudent.agreement-newstudentm1');
+   }
+
+   function agreementNewstudentm4(){
+        return view('Newstudent.agreement-newstudentm4');
+    }
+
+    function Newstudentm1(){
+        return view('Newstudent.newstudentm1');
+    }
+
+    function Newstudentm4(){
+        return view('Newstudent.newstudentm4');
+    }
+
+    function Sortnewstudentm1(){
+        $data = newstudentm1Model::all();
+        return view('Newstudent.sortnewstudentm1');
+    }
+
+    function Sortnewstudentm4(){
+        return view('Newstudent.sortnewstudentm4');
+    }
+
+    function Newstudentm1byID(){
+        return view('Newstudent.newstidentm1byID');
+    }
+
+    function Newstudentm4byID(){
+        return view('Newstudent.newstidentm4byID');
+    }
+
+    function Fixprofilenewstudentm1(){
+        return view('Newstudent.fixprofilenewstudentm1');
+    }
+
+    function Fixprofilenewstudentm4(){
+        return view('Newstudent.fixprofilenewstudentm4');
+    }
+
+    public function GetAll()
     {
         return newstudentm1Model::all();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $post = new newstudentm1Model();
